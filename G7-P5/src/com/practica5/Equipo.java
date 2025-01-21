@@ -12,6 +12,7 @@ public class Equipo {
         this.entrenador = entrenador;
         this.jugador = jugador;
     }
+    
 
     public String getNombre() {
         return nombre;
@@ -44,5 +45,11 @@ public class Equipo {
     public void setJugador(Jugador jugador) {
         this.jugador = jugador;
     }
-    
+    public String toString() {
+        return "Equipo : " +
+                "nombre='" + nombre + '\'' +
+                ", presidente=" + presidente +
+                ", entrenador=" + entrenador +
+                ", jugador=" + jugador;
+    }
 }
