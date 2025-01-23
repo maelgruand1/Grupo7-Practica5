@@ -6,10 +6,10 @@ public class Jugador {
    private Date fechaNacimiento;
    private String pais;
    private int dorsal;
-   private String poticion;
+   private Poticion poticion;
 
 
-public Jugador(String nombre, Date fechaNacimiento, String pais, int dorsal, String poticion) {
+public Jugador(String nombre, Date fechaNacimiento, String pais, int dorsal, Poticion poticion) {
    this.nombre = nombre;
    this.fechaNacimiento = fechaNacimiento;
    this.pais = pais;
@@ -17,6 +17,8 @@ public Jugador(String nombre, Date fechaNacimiento, String pais, int dorsal, Str
    this.poticion = poticion;
 }
 
+
+// Getters y Setters
 public String getNombre() {
    return nombre;
 }
@@ -43,23 +45,19 @@ public void setDorsal(int dorsal) {
    this.dorsal = dorsal;
 }
 
-public String getPoticion() {
+public Poticion getPoticion() {
    return poticion;
 }
 
-public void setPoticion(String poticion) {
+public void setPoticion(Poticion poticion) {
    this.poticion = poticion;
 }
 
-
+// Metodo para generar un String de los elementos
 public String toString() {
-   return "Jugador : " +
-           "nombre='" + nombre + '\'' +
-           ", fechaNacimiento=" + fechaNacimiento +
-           ", pais='" + pais + '\'' +
-           ", dorsal=" + dorsal +
-           ", poticion=" + poticion;
-
+   return "Jugador : " + nombre + " del " + fechaNacimiento + " de " + 
+           pais +
+           " numero : " + dorsal + " y en posición " +  poticion;
 }
 
 }

@@ -1,5 +1,5 @@
 package com.practica5;
 
 public enum Poticion {
-    CENTER, LEFT, RIGHT, DELENTERO, DEFENSOR
+    centro, izquierdo, derecho, delentero, defensor
 }
