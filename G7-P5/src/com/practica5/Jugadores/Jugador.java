@@ -19,13 +19,6 @@ public class Jugador {
       this.estadoTraspaso = EstadoTraspaso.SIN_SOLICITAR;
    }
 
-   public EstadoTraspaso getEstadoTraspaso() {
-        return estadoTraspaso;
-    }
-
-   public void setEstadoTraspaso(EstadoTraspaso estado) {
-    this.estadoTraspaso = estado;
-   }
 
    // Getters y Setters
    public String getNombre() {
@@ -86,3 +79,20 @@ public enum EstadoTraspaso {
     RECHAZADO_POR_PRESIDENTE;
 }
 
+public EstadoTraspaso getEstadoTraspaso() {
+        return estadoTraspaso;
+    }
+
+   public void setEstadoTraspaso(EstadoTraspaso estado) {
+    this.estadoTraspaso = estado;
+   }
+
+
+public void solicitarTraspaso() {
+    if (estadoTraspaso == EstadoTraspaso.SIN_SOLICITAR) {
+        estadoTraspaso = EstadoTraspaso.SOLICITADO;
+        System.out.println(nombre + " ha solicitado un traspaso.");
+    } else {
+        System.out.println("El traspaso ya ha sido solicitado o está en otro estado: " + estadoTraspaso);
+    }
+}
