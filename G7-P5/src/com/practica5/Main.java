@@ -3,6 +3,11 @@ package com.practica5;
 import java.sql.Date;
 import java.util.ArrayList;
 
+import com.practica5.Entrenador.Entrenador;
+import com.practica5.Entrenador.Formacion;
+import com.practica5.Jugadores.Jugador;
+import com.practica5.Jugadores.Poticion;
+
 public class Main {
     public static void main(String[] args) throws Exception {
         Jugador jugador = new Jugador("Toni Kros", Date.valueOf("1990-01-04"), "Alemania", 8, Poticion.centro);

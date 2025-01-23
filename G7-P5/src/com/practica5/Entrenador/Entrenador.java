@@ -1,4 +1,4 @@
-package com.practica5;
+package com.practica5.Entrenador;
 
 public class Entrenador {
     private String nombre;
@@ -7,10 +7,6 @@ public class Entrenador {
     public Entrenador(String nombre, Formacion formacion) {
         this.nombre = nombre;
         this.formacion = formacion;
-    }
-    
-    public String toString() {
-        return "Entrenador : " + nombre + " con formacion de equipo " +  formacion;
     }
 
     public String getNombre() {
@@ -27,6 +23,10 @@ public class Entrenador {
 
     public void setFormacion(Formacion formacion) {
         this.formacion = formacion;
+    }
+
+    public String toString() {
+        return "Entrenador : " + nombre + " con formacion de equipo " + formacion;
     }
 
 }
