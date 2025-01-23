@@ -1,16 +1,18 @@
 package com.practica5;
 
+import java.util.ArrayList;
+
 public class Equipo {
     private String nombre;
     private Presidente presidente;
     private Entrenador entrenador;
-    private Jugador jugador;
+    private ArrayList<Jugador> realMadrid;
     
-    public Equipo(String nombre, Presidente presidente, Entrenador entrenador, Jugador jugador) {
+    public Equipo(String nombre, Presidente presidente, Entrenador entrenador, ArrayList<Jugador> realMadrid) {
         this.nombre = nombre;
         this.presidente = presidente;
         this.entrenador = entrenador;
-        this.jugador = jugador;
+        this.realMadrid = realMadrid;
     }
 
     public String getNombre() {
@@ -36,13 +38,7 @@ public class Equipo {
     public void setEntrenador(Entrenador entrenador) {
         this.entrenador = entrenador;
     }
-
-    public Jugador getJugador() {
-        return jugador;
+    public String toString() {
+        return "Equipo : " + nombre + " con presidente " + presidente + " y entrenador " + entrenador +  " y jugadores " + realMadrid;
     }
-
-    public void setJugador(Jugador jugador) {
-        this.jugador = jugador;
-    }
-    
 }

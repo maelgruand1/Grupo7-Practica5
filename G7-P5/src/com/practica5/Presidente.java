@@ -34,5 +34,7 @@ public class Presidente {
     public void setEquipo(Equipo equipo) {
         this.equipo = equipo;
     }
-    
+    public String toString(){
+        return "Presidente : " + nomnbre + " con dni " + dni + " y equipo " + equipo;
+    }
 }   
