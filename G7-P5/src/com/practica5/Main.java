@@ -1,6 +1,6 @@
 package com.practica5;
 
-// modulos
+// Modulos
 import java.util.Date;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -13,6 +13,7 @@ import com.practica5.Jugadores.Jugador;
 import com.practica5.Jugadores.Poticion;
 
 public class Main {
+
 
     public static Date getFecha(int day, int month, int year) {
         Calendar cal = Calendar.getInstance();
