@@ -8,6 +8,7 @@ public class Jugador {
    private String pais;
    private int dorsal;
    private Poticion poticion;
+   private EstadoTraspaso estadoTraspaso;
 
    public Jugador(String nombre, Date fechaNacimiento, String pais, int dorsal, Poticion poticion) {
       this.nombre = nombre;
@@ -15,7 +16,9 @@ public class Jugador {
       this.pais = pais;
       this.dorsal = dorsal;
       this.poticion = poticion;
+      this.estadoTraspaso = EstadoTraspaso.SIN_SOLICITAR;
    }
+
 
    // Getters y Setters
    public String getNombre() {
@@ -65,4 +68,31 @@ public class Jugador {
             " numero : " + dorsal + " y en posición " + poticion;
    }
 
+}
+// para gestionar los estados de los traspasos
+public enum EstadoTraspaso {
+    SIN_SOLICITAR,
+    SOLICITADO,
+    APROBADO_POR_ENTRENADOR,
+    RECHAZADO_POR_ENTRENADOR,
+    APROBADO_POR_PRESIDENTE,
+    RECHAZADO_POR_PRESIDENTE;
+}
+
+public EstadoTraspaso getEstadoTraspaso() {
+        return estadoTraspaso;
+    }
+
+   public void setEstadoTraspaso(EstadoTraspaso estado) {
+    this.estadoTraspaso = estado;
+   }
+
+
+public void solicitarTraspaso() {
+    if (estadoTraspaso == EstadoTraspaso.SIN_SOLICITAR) {
+        estadoTraspaso = EstadoTraspaso.SOLICITADO;
+        System.out.println(nombre + " ha solicitado un traspaso.");
+    } else {
+        System.out.println("El traspaso ya ha sido solicitado o está en otro estado: " + estadoTraspaso);
+    }
 }
