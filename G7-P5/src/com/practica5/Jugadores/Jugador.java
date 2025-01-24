@@ -19,7 +19,6 @@ public class Jugador {
       this.estadoTraspaso = EstadoTraspaso.SIN_SOLICITAR;
    }
 
-
    // Getters y Setters
    public String getNombre() {
       return nombre;
@@ -68,24 +67,22 @@ public class Jugador {
             " numero : " + dorsal + " y en posición " + poticion;
    }
 
-}
-// para gestionar los estados de los traspasos
+   // para gestionar los estados de los traspasos
 
-
-public EstadoTraspaso getEstadoTraspaso() {
-        return estadoTraspaso;
-    }
-
-   public void setEstadoTraspaso(EstadoTraspaso estado) {
-    this.estadoTraspaso = estado;
+   public EstadoTraspaso getEstadoTraspaso() {
+      return estadoTraspaso;
    }
 
+   public void setEstadoTraspaso(EstadoTraspaso estado) {
+      this.estadoTraspaso = estado;
+   }
 
-public void solicitarTraspaso() {
-    if (estadoTraspaso == EstadoTraspaso.SIN_SOLICITAR) {
-        estadoTraspaso = EstadoTraspaso.SOLICITADO;
-        System.out.println(nombre + " ha solicitado un traspaso.");
-    } else {
-        System.out.println("El traspaso ya ha sido solicitado o está en otro estado: " + estadoTraspaso);
-    }
+   public void solicitarTraspaso() {
+      if (estadoTraspaso == EstadoTraspaso.SIN_SOLICITAR) {
+         estadoTraspaso = EstadoTraspaso.SOLICITADO;
+         System.out.println(nombre + " ha solicitado un traspaso.");
+      } else {
+         System.out.println("El traspaso ya ha sido solicitado o está en otro estado: " + estadoTraspaso);
+      }
+   }
 }
