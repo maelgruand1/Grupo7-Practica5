@@ -58,6 +58,7 @@ public class Main {
 
                 Equipo equipo = new Equipo("Real Madrid", presidente, entrenador, realMadrid);
                 Equipo equipo2 = new Equipo("Barcelona", presidente, entrenador, barcelona);
+                
                 System.out.println(equipo);
                 System.out.println(equipo2);
 
