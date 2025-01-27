@@ -16,7 +16,7 @@ public class Main {
 
         public static Date getFecha(int day, int month, int year) {
                 Calendar cal = Calendar.getInstance();
-                cal.set(day, month, year);
+                cal.set(year, month, day);
                 return cal.getTime();
         }
 
@@ -58,7 +58,7 @@ public class Main {
 
                 Equipo equipo = new Equipo("Real Madrid", presidente, entrenador, realMadrid);
                 Equipo equipo2 = new Equipo("Barcelona", presidente, entrenador, barcelona);
-                
+
                 System.out.println(equipo);
                 System.out.println(equipo2);
 

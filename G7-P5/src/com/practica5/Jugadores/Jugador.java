@@ -1,5 +1,7 @@
 package com.practica5.Jugadores;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Jugador {
@@ -62,7 +64,9 @@ public class Jugador {
 
    // Metodo para generar un String de los elementos
    public String toString() {
-      return "Jugador : " + nombre + " del " + fechaNacimiento + " de " +
+      DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+
+      return "Jugador : " + nombre + " del " + dateFormat.format(fechaNacimiento) + " de " +
             pais +
             " numero : " + dorsal + " y en posición " + poticion;
    }
@@ -77,8 +81,6 @@ public class Jugador {
       this.estadoTraspaso = estado;
    }
 
-
-
    public void solicitarTraspaso() {
       if (estadoTraspaso == EstadoTraspaso.SIN_SOLICITAR) {
          estadoTraspaso = EstadoTraspaso.SOLICITADO;
@@ -87,6 +89,5 @@ public class Jugador {
          System.out.println("El traspaso ya ha sido solicitado o está en otro estado: " + estadoTraspaso);
       }
    }
-
 
 }
