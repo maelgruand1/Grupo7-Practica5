@@ -77,8 +77,7 @@ public class Jugador {
       this.estadoTraspaso = estado;
    }
 
-   private int entrenadorOk = entrenadorAproba();
-   private int presidenteOk = presidenteAproba();
+
 
    public void solicitarTraspaso() {
       if (estadoTraspaso == EstadoTraspaso.SIN_SOLICITAR) {
@@ -89,23 +88,5 @@ public class Jugador {
       }
    }
 
-   private int entrenadorAproba() {
-      if (estadoTraspaso == EstadoTraspaso.SOLICITADO) {
-         estadoTraspaso = EstadoTraspaso.APROBADO_POR_ENTRENADOR;
-         System.out.println("El traspaso ha sido aprobado por el entrenador.");
-         return 1;
-      } else {
-         return 0;
-      }
-   }
 
-   private int presidenteAproba() {
-      if (estadoTraspaso == EstadoTraspaso.APROBADO_POR_ENTRENADOR) {
-         estadoTraspaso = EstadoTraspaso.APROBADO_POR_PRESIDENTE;
-         System.out.println("El traspaso ha sido aprobado por el presidente.");
-         return 1;
-      } else {
-         return 0;
-      }
-   }
 }
