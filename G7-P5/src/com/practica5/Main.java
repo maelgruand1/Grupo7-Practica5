@@ -56,8 +56,8 @@ public class Main {
                 realMadrid.add(jugador4);
                 barcelona.add(jugador5);
 
-                Equipo equipo = new Equipo("Real Madrid", presidente, entrenador, realMadrid);
-                Equipo equipo2 = new Equipo("Barcelona", presidente, entrenador, barcelona);
+                Equipo equipo = new Equipo("Real Madrid", presidente, entrenador, realMadrid, "RMA");
+                Equipo equipo2 = new Equipo("Barcelona", presidente, entrenador, barcelona, "BAR");
 
                 System.out.println(equipo);
                 System.out.println(equipo2);

@@ -10,12 +10,15 @@ public class Equipo {
     private Presidente presidente;
     private Entrenador entrenador;
     private ArrayList<Jugador> jugadores;
+    private String abv;
 
-    public Equipo(String nombre, Presidente presidente, Entrenador entrenador, ArrayList<Jugador> jugadores) {
+    public Equipo(String nombre, Presidente presidente, Entrenador entrenador, ArrayList<Jugador> jugadores,
+            String abv) {
         this.nombre = nombre;
         this.presidente = presidente;
         this.entrenador = entrenador;
         this.jugadores = jugadores;
+        this.abv = abv;
     }
 
     public String getNombre() {
@@ -46,4 +49,21 @@ public class Equipo {
         return "Equipo : " + nombre + " con presidente " + presidente + " y entrenador " + entrenador + " y jugadores "
                 + jugadores;
     }
+
+    public ArrayList<Jugador> getJugadores() {
+        return jugadores;
+    }
+
+    public String getAbv() {
+        return abv;
+    }
+
+    public void setJugadores(ArrayList<Jugador> jugadores) {
+        this.jugadores = jugadores;
+    }
+
+    public void setAbv(String abv) {
+        this.abv = abv;
+    }
+
 }
