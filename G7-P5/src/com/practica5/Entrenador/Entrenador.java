@@ -29,4 +29,19 @@ public class Entrenador {
         return "Entrenador : " + nombre + " con formacion de equipo " + formacion;
     }
 
+    public void decidirTraspaso(Jugador jugador, boolean aceptar) {
+        if (jugador.getEstadoTraspaso() == EstadoTraspaso.SOLICITADO) {
+            jugador.setEstadoTraspaso(aceptar ? EstadoTraspaso.APROBADO_POR_ENTRENADOR : EstadoTraspaso.RECHAZADO_POR_ENTRENADOR);
+        }
+    }
+
+    if (jugador.getEstadoTraspaso() == EstadoTraspaso.SOLICITADO) {
+        jugador.setEstadoTraspaso(aceptar ? EstadoTraspaso.APROBADO_POR_ENTRENADOR 
+                                          : EstadoTraspaso.RECHAZADO_POR_ENTRENADOR);
+        System.out.println("El entrenador " + nombre + " ha " + 
+            (aceptar ? "aprobado" : "rechazado") + " el traspaso de " + jugador.getNombre());
+    } else {
+        System.out.println("El traspaso no puede ser decidido en este estado.");
+    }
+
 }
