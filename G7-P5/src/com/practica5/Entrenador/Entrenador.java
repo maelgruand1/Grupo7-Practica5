@@ -1,5 +1,8 @@
 package com.practica5.Entrenador;
 
+import com.practica5.Jugadores.EstadoTraspaso;
+import com.practica5.Jugadores.Jugador;
+
 public class Entrenador {
     private String nombre;
     private Formacion formacion;
@@ -29,19 +32,22 @@ public class Entrenador {
         return "Entrenador : " + nombre + " con formacion de equipo " + formacion;
     }
 
-    public void decidirTraspaso(Jugador jugador, boolean aceptar) {
+    public void decidirTraspaso(Jugador jugador, boolean aceptar, EstadoTraspaso estadoTraspaso) {
         if (jugador.getEstadoTraspaso() == EstadoTraspaso.SOLICITADO) {
             jugador.setEstadoTraspaso(aceptar ? EstadoTraspaso.APROBADO_POR_ENTRENADOR : EstadoTraspaso.RECHAZADO_POR_ENTRENADOR);
         }
-    }
+    if(jugador.getEstadoTraspaso()==EstadoTraspaso.SOLICITADO)
 
-    if (jugador.getEstadoTraspaso() == EstadoTraspaso.SOLICITADO) {
-        jugador.setEstadoTraspaso(aceptar ? EstadoTraspaso.APROBADO_POR_ENTRENADOR 
-                                          : EstadoTraspaso.RECHAZADO_POR_ENTRENADOR);
-        System.out.println("El entrenador " + nombre + " ha " + 
-            (aceptar ? "aprobado" : "rechazado") + " el traspaso de " + jugador.getNombre());
-    } else {
+    {
+        jugador.setEstadoTraspaso(aceptar ? EstadoTraspaso.APROBADO_POR_ENTRENADOR
+                : EstadoTraspaso.RECHAZADO_POR_ENTRENADOR);
+        System.out.println("El entrenador " + nombre + " ha " +
+                (aceptar ? "aprobado" : "rechazado") + " el traspaso de " + jugador.getNombre());
+    }else
+    {
         System.out.println("El traspaso no puede ser decidido en este estado.");
     }
+    }
+
 
 }
