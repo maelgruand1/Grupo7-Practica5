@@ -66,4 +66,40 @@ public class Equipo {
         this.abv = abv;
     }
 
+    // Método para resetear estados de traspaso de jugadores rechazados
+    public void resetearEstadosTraspaso() {
+        boolean cambios = false;
+        for (Jugador jugador : jugadores) {
+            if (jugador.getEstadoTraspaso() == EstadoTraspaso.RECHAZADO_POR_ENTRENADOR ||
+                jugador.getEstadoTraspaso() == EstadoTraspaso.RECHAZADO_POR_PRESIDENTE) {
+                
+                jugador.setEstadoTraspaso(EstadoTraspaso.SIN_SOLICITAR);
+                cambios = true;
+            }
+        }
+        if (cambios) {
+            System.out.println("Estados de traspaso reseteados en el equipo " + nombre);
+        } else {
+            System.out.println("No hay jugadores rechazados para resetear en " + nombre);
+        }
+    }
+
+
+    // Método para agregar jugadores al equipo
+    public void agregarJugador(Jugador jugador) {
+        if (!jugadores.contains(jugador)) {
+            jugadores.add(jugador);
+            System.out.println("Jugador " + jugador.getNombre() + " agregado a " + nombre);
+        }
+    }
+
+    // Método para remover jugadores del equipo
+    public void removerJugador(Jugador jugador) {
+        if (jugadores.contains(jugador)) {
+            jugadores.remove(jugador);
+            System.out.println("Jugador " + jugador.getNombre() + " removido de " + nombre);
+        }
+    }
 }
+
+
