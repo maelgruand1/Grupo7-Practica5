@@ -33,9 +33,7 @@ public class Entrenador {
     }
 
     public void decidirTraspaso(Jugador jugador, boolean aceptar, EstadoTraspaso estadoTraspaso) {
-        if (jugador.getEstadoTraspaso() == EstadoTraspaso.SOLICITADO) {
-            jugador.setEstadoTraspaso(aceptar ? EstadoTraspaso.APROBADO_POR_ENTRENADOR : EstadoTraspaso.RECHAZADO_POR_ENTRENADOR);
-        }
+      
     if(jugador.getEstadoTraspaso()==EstadoTraspaso.SOLICITADO)
 
     {
