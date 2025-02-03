@@ -15,6 +15,19 @@ public class Presidente {
             System.out.println("Error: El presidente solo puede decidir sobre jugadores aprobados por el entrenador.");
             return;
         }
+        if (aceptar) {
+            origen.hacerTransferencia(origen, destino, jugador);
+            destino.hacerTransferencia(origen, destino, jugador);
+        } else {
+            System.out.println("El presidente " + nombre + " ha rechazado el traspaso de " + jugador.getNombre());
+        }
 
     }
+    public String getNombre() {
+        return nombre;
+    
+    }
+    public String toString() {
+        return "Presidente : " + nombre;
+    }   
 }
