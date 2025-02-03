@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import com.practica5.Entrenador.Entrenador;
 import com.practica5.Jugadores.Jugador;
+import com.practica5.Jugadores.EstadoTraspaso;
 
 public class Equipo {
     private String nombre;

@@ -45,7 +45,7 @@ public class Main {
                 jugador5.solicitarTraspaso();
 
                 Entrenador entrenador = new Entrenador("Zinedine Zidane", Formacion._433);
-                Presidente presidente = new Presidente(456789, "Florentino Perez", null);
+                Presidente presidente = new Presidente("Florentino Perez");
 
                 ArrayList<Jugador> realMadrid = new ArrayList<Jugador>();
                 ArrayList<Jugador> barcelona = new ArrayList<Jugador>();
