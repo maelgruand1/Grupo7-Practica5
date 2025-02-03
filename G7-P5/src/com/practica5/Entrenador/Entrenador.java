@@ -32,7 +32,7 @@ public class Entrenador {
         return "Entrenador : " + nombre + " con formacion de equipo " + formacion;
     }
 
-    public void decidirTraspaso(Jugador jugador, boolean aceptar, EstadoTraspaso estadoTraspaso) {
+    public void decidirTraspaso(Jugador jugador, boolean aceptar) {
       
     if(jugador.getEstadoTraspaso()==EstadoTraspaso.SOLICITADO)
 

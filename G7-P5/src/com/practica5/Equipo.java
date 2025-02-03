@@ -72,8 +72,8 @@ public class Equipo {
         boolean cambios = false;
         for (Jugador jugador : jugadores) {
             if (jugador.getEstadoTraspaso() == EstadoTraspaso.RECHAZADO_POR_ENTRENADOR ||
-                jugador.getEstadoTraspaso() == EstadoTraspaso.RECHAZADO_POR_PRESIDENTE) {
-                
+                    jugador.getEstadoTraspaso() == EstadoTraspaso.RECHAZADO_POR_PRESIDENTE) {
+
                 jugador.setEstadoTraspaso(EstadoTraspaso.SIN_SOLICITAR);
                 cambios = true;
             }
@@ -84,7 +84,6 @@ public class Equipo {
             System.out.println("No hay jugadores rechazados para resetear en " + nombre);
         }
     }
-
 
     // Método para agregar jugadores al equipo
     public void agregarJugador(Jugador jugador) {
@@ -101,6 +100,15 @@ public class Equipo {
             System.out.println("Jugador " + jugador.getNombre() + " removido de " + nombre);
         }
     }
+
+    public void hacerTransferencia(Equipo origen, Equipo destino, Jugador jugador) {
+        if (origen.getJugadores().contains(jugador)) {
+            origen.removerJugador(jugador);
+            destino.agregarJugador(jugador);
+            System.out.println("Transferencia de " + jugador.getNombre() + " de " + origen.getNombre() + " a "
+                    + destino.getNombre() + " realizada.");
+        } else {
+            System.out.println("Error: El jugador no pertenece al equipo origen.");
+        }
+    }
 }
-
-
