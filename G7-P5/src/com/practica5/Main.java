@@ -28,12 +28,7 @@ public class Main {
                 Equipo equipo2 = new Equipo("Barcelona", presidente, entrenador, barcelona, "BAR");
                 ArrayList<Jugador> realMadrid = new ArrayList<Jugador>();
                 ArrayList<Jugador> barcelona = new ArrayList<Jugador>();
-                realMadrid.add(jugador);
-                realMadrid.add(jugador1);
-                barcelona.add(jugador2);
-                barcelona.add(jugador3);
-                realMadrid.add(jugador4);
-                barcelona.add(jugador5);
+                
 
                 Jugador jugador = new Jugador("Toni Kros", getFecha(18, 07, 1999), "Alemania", 8, Poticion.centro);
                 jugador.solicitarTraspaso(); // Debería cambiar el estado a SOLICITADO
@@ -72,6 +67,13 @@ public class Main {
 
                 System.out.println(equipo);
                 System.out.println(equipo2);
+
+                realMadrid.add(jugador);
+                realMadrid.add(jugador1);
+                barcelona.add(jugador2);
+                barcelona.add(jugador3);
+                realMadrid.add(jugador4);
+                barcelona.add(jugador5);
 
         }
 }
