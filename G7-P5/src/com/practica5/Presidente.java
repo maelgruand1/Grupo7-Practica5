@@ -20,14 +20,24 @@ public class Presidente {
             destino.hacerTransferencia(origen, destino, jugador);
         } else {
             System.out.println("El presidente " + nombre + " ha rechazado el traspaso de " + jugador.getNombre());
+            
         }
-
     }
+
     public String getNombre() {
         return nombre;
-    
+
     }
+
     public String toString() {
         return "Presidente : " + nombre;
-    }   
+    }
+
+    public boolean aceptarTraspaso(Jugador jugador) {
+        return true;
+    }
+
+    public boolean rechazarTraspaso(Jugador jugador) {
+        return false;
+    }
 }
