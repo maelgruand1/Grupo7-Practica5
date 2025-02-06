@@ -20,8 +20,8 @@ public class Main {
     public static void main(String[] args) {
         Entrenador entrenador1 = new Entrenador("Guardiola", Formacion._433);
         Entrenador entrenador2 = new Entrenador("Mourinho", Formacion._442);
-        ArrayList<Jugador> jugadoresEquipo1 = new ArrayList<>();
-        ArrayList<Jugador> jugadoresEquipo2 = new ArrayList<>();
+        ArrayList<Jugador> jugadoresEquipo1 = new ArrayList<Jugador>();
+        ArrayList<Jugador> jugadoresEquipo2 = new ArrayList<Jugador>();
 
         // Création des présidents
         Presidente presidente1 = new Presidente("Laporta");
@@ -45,22 +45,23 @@ public class Main {
 
         // Simuler une demande de transfert
         System.out.println("\n--- SOLICITUD DE TRASPASO ---");
-        jugador1.setEstadoTraspaso(EstadoTraspaso.SOLICITADO);
-        jugador2.setEstadoTraspaso(EstadoTraspaso.SOLICITADO);
+        jugador1.solicitarTraspaso();
+        jugador2.solicitarTraspaso();
+        
         System.out.println(jugador1);
         System.out.println(jugador2);
 
-        // Décision de l'entraîneur
+        // Trainer decision
         System.out.println("\n--- DECISIÓN DEL ENTRENADOR ---");
-        entrenador1.decidirTraspaso(jugador1, "Aceptar"); // Accepté par l'entraîneur
+        entrenador1.decidirTraspaso(jugador1, "Aceptar"); 
         System.out.println(jugador1);
-        entrenador2.decidirTraspaso(jugador2, "Rechazar"); // Rejeté par l'entraîneur
+        entrenador2.decidirTraspaso(jugador2, "Aceptar"); 
         System.out.println(jugador2);
 
-        // Décision du président
+        // President desision
         System.out.println("\n--- DECISIÓN DEL PRESIDENTE ---");
-        presidente1.decidirTraspaso(jugador1, "Aceptar"); // Accepté par le président
-        presidente2.decidirTraspaso(jugador2, "Rechazar"); // Rejeté par le président
+        presidente1.decidirTraspaso(jugador1, "Aceptar"); 
+        presidente2.decidirTraspaso(jugador2, "Aceptar"); 
 
         System.out.println(jugador1);
         System.out.println(jugador2);
@@ -69,8 +70,7 @@ public class Main {
         System.out.println("\n--- TRASPASO REALIZADO ---");
         equipo1.hacerTransferencia(jugador1, equipo2);
         equipo2.hacerTransferencia(jugador2, equipo1);
-        equipo1.realizarTraspaso(jugador2, equipo2);
-        equipo2.realizarTraspaso(jugador1, equipo1);
+        
         System.out.println(jugador1);
         System.out.println(jugador2);
 

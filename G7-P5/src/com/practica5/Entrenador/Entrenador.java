@@ -44,6 +44,7 @@ public class Entrenador {
             System.out.println("Le joueur " + jugador.getNombre() + " n'a pas demandé de transfert.");
         }
     }
+    
 
     @Override
     public String toString() {

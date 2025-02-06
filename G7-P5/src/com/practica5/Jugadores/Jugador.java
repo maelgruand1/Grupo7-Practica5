@@ -1,6 +1,8 @@
 package com.practica5.Jugadores;
 
 import com.practica5.Jugadores.Jugador;
+
+import java.util.ArrayList;
 import java.util.Date;
 import com.practica5.Equipo;
 
@@ -79,17 +81,25 @@ public class Jugador {
       equipo.agregarJugador(this);
    }
 
-   public void setEstadoTraspaso(EstadoTraspaso estado) {
-      this.traspaso = EstadoTraspaso.SOLICITADO;
-   }
-
+   
    public Equipo getEquipo() {
       return equipo;
    }
 
-   public void setEquipo(Equipo equipo) {
-      this.equipo = equipo;
+   public void setEquipo(Equipo nuevoClub) {
+      this.equipo = nuevoClub;
    }
+   public void solicitarTraspaso() {
+      // Vérifie si un transfert est déjà demandé
+      if (this.traspaso == EstadoTraspaso.SOLICITADO) {
+         System.out.println("El jugador ya ha solicitado un traspaso.");
+      } else {
+         // Change l'état de traspaso en "SOLICITADO"
+         this.traspaso = EstadoTraspaso.SOLICITADO;
+         System.out.println("El jugador " + this.nombre + " ha solicitado un traspaso.");
+      }
+   }
+   
 
    @Override
    public String toString() {

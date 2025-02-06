@@ -20,18 +20,19 @@ public class Presidente {
     }
 
     public void decidirTraspaso(Jugador jugador, String decision) {
-        if (jugador.getTraspaso() == EstadoTraspaso.SOLICITADO) {
+        // Vérifie si l'entraîneur a déjà approuvé le transfert
+        if (jugador.getTraspaso() == EstadoTraspaso.APROBADO_POR_ENTRENADOR) {
             if ("Aceptar".equalsIgnoreCase(decision)) {
-                jugador.setTraspaso(EstadoTraspaso.APROBADO_POR_ENTRENADOR);
-                System.out.println("Le transfert de " + jugador.getNombre() + " a été accepté par l'entraîneur.");
+                jugador.setTraspaso(EstadoTraspaso.APROBADO_POR_PRESIDENTE);
+                System.out.println("El traspaso de " + jugador.getNombre() + " ha sido aprobado por el presidente.");
             } else if ("Rechazar".equalsIgnoreCase(decision)) {
-                jugador.setTraspaso(EstadoTraspaso.RECHAZADO_POR_ENTRENADOR);
-                System.out.println("Le transfert de " + jugador.getNombre() + " a été rejeté par l'entraîneur.");
+                jugador.setTraspaso(EstadoTraspaso.RECHAZADO_POR_PRESIDENTE);
+                System.out.println("El traspaso de " + jugador.getNombre() + " ha sido rechazado por el presidente.");
             } else {
-                System.out.println("Décision invalide. Utilisez 'Aceptar' ou 'Rechazar'.");
+                System.out.println("Decisión inválida. Use 'Aceptar' o 'Rechazar'.");
             }
         } else {
-            System.out.println("Le joueur " + jugador.getNombre() + " n'a pas demandé de transfert.");
+            System.out.println("El jugador " + jugador.getNombre() + " no ha sido aprobado por el entrenador para el traspaso.");
         }
     }
 

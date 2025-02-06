@@ -30,18 +30,7 @@ public class Equipo {
     }
 
     // Méthode pour réaliser un traspaso (simplifiée)
-    public void realizarTraspaso(Jugador jugador, Equipo nuevoEquipo) {
-        if (jugador.getTraspaso() == EstadoTraspaso.APROBADO_POR_PRESIDENTE) {
-            jugadores.remove(jugador);
-            nuevoEquipo.agregarJugador(jugador);
-            System.out.println("Traspaso realizado: " + jugador.getNombre() + " de " + abreviatura + " a "
-                    + nuevoEquipo.abreviatura);
-        } else {
-            System.out.println("El traspaso de " + jugador.getNombre() + " no ha sido aprobado.");
-        }
-    }
 
-    // Méthode de transfert
     public void hacerTransferencia(Jugador jugador, Equipo nuevoEquipo) {
         if (jugador.getTraspaso() == EstadoTraspaso.APROBADO_POR_PRESIDENTE) {
             // Supprimer le joueur de l'équipe actuelle
