@@ -48,13 +48,6 @@ public class Equipo {
     }
     
 
-    @Override
-    public String toString() {
-
-        return "Equipo: " + abreviatura + ", Entrenador: " + entrenador.getNombre() + ", Presidente: "
-                + presidente.getNombre() + ", Jugadores: " + jugadores;
-    }
-
     public String getAbreviatura() {
         return abreviatura;
     }
@@ -90,10 +83,10 @@ public class Equipo {
 
     public String toString() {
         return "Equipo : " +
-                "nombre='" + nombre + '\'' +
+                "nombre='" + this.abreviatura + '\'' +
                 ", presidente=" + presidente +
                 ", entrenador=" + entrenador +
-                ", jugador=" + jugador;
+                ", jugador=" + jugadores ;
     }
 
 }
