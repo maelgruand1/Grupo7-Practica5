@@ -28,7 +28,6 @@ public class Main {
 
                 Equipo equipo = new Equipo("Real Madrid", presidente, entrenador, realMadrid, "RMA");
                 Equipo equipo2 = new Equipo("Barcelona", presidente, entrenador, barcelona, "BAR");
-                
 
                 Jugador jugador = new Jugador("Toni Kros", getFecha(18, 07, 1999), "Alemania", 8, Poticion.centro);
                 jugador.solicitarTraspaso(); // Debería cambiar el estado a SOLICITADO
@@ -69,13 +68,6 @@ public class Main {
 
                 presidente.aceptarTraspaso(jugador);
                 presidente.rechazarTraspaso(jugador1);
-
-                realMadrid.add(jugador);
-                realMadrid.add(jugador1);
-                barcelona.add(jugador2);
-                barcelona.add(jugador3);
-                realMadrid.add(jugador4);
-                barcelona.add(jugador5);
 
         }
 
