@@ -3,24 +3,54 @@ package com.practica5;
 import com.practica5.Jugadores.EstadoTraspaso;
 import com.practica5.Jugadores.Jugador;
 
+/**
+ * Clase que representa a un presidente de un equipo de fútbol. El presidente tiene la capacidad
+ * de decidir sobre los traspasos de los jugadores, siempre y cuando el entrenador haya aprobado
+ * previamente el traspaso.
+ * 
+ * @autor [Nombre del autor]
+ */
 public class Presidente {
     private String nombre;
 
-    // Constructeur
+    /**
+     * Constructor para crear un nuevo presidente con el nombre proporcionado.
+     *
+     * @param nombre El nombre del presidente.
+     */
     public Presidente(String nombre) {
         this.nombre = nombre;
     }
 
+    /**
+     * Obtiene el nombre del presidente.
+     *
+     * @return El nombre del presidente.
+     */
     public String getNombre() {
         return nombre;
     }
 
+    /**
+     * Establece el nombre del presidente.
+     *
+     * @param nombre El nuevo nombre del presidente.
+     */
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
 
+    /**
+     * Método para que el presidente decida sobre un traspaso de un jugador.
+     * El traspaso solo se puede aprobar o rechazar si el entrenador ha aprobado previamente
+     * el traspaso del jugador. Si la decisión es "Aceptar", el presidente aprueba el traspaso;
+     * si es "Rechazar", lo rechaza.
+     *
+     * @param jugador El jugador cuyo traspaso se está decidiendo.
+     * @param decision La decisión del presidente sobre el traspaso ("Aceptar" o "Rechazar").
+     */
     public void decidirTraspaso(Jugador jugador, String decision) {
-        // Vérifie si l'entraîneur a déjà approuvé le transfert
+        // Verifica si el entrenador ya ha aprobado el traspaso
         if (jugador.getTraspaso() == EstadoTraspaso.APROBADO_POR_ENTRENADOR) {
             if ("Aceptar".equalsIgnoreCase(decision)) {
                 jugador.setTraspaso(EstadoTraspaso.APROBADO_POR_PRESIDENTE);
@@ -36,6 +66,11 @@ public class Presidente {
         }
     }
 
+    /**
+     * Método para representar al presidente como una cadena de texto.
+     *
+     * @return Una cadena que representa al presidente con su nombre.
+     */
     @Override
     public String toString() {
         return "Presidente: " + nombre;
