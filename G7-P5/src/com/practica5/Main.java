@@ -11,6 +11,7 @@ import com.practica5.Jugadores.Jugador;
 import com.practica5.Jugadores.Poticion;
 
 public class Main {
+
     public static Date getFechaNacimiento(int year, int month, int day) {
         Calendar calendar = Calendar.getInstance();
         calendar.set(year, month - 1, day); // Le mois commence à 0, donc il faut soustraire 1

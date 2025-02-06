@@ -18,6 +18,7 @@ public class Equipo {
         this.presidente = presidente;
         this.jugadores = jugadores;
     }
+    
 
     // Méthode pour ajouter un joueur
     public void agregarJugador(Jugador jugador) {
@@ -85,4 +86,14 @@ public class Equipo {
     public void setJugadores(ArrayList<Jugador> jugadores) {
         this.jugadores = jugadores;
     }
+
+
+    public String toString() {
+        return "Equipo : " +
+                "nombre='" + nombre + '\'' +
+                ", presidente=" + presidente +
+                ", entrenador=" + entrenador +
+                ", jugador=" + jugador;
+    }
+
 }
