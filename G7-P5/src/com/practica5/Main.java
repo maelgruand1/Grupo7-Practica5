@@ -6,7 +6,6 @@ import java.util.Date;
 
 import com.practica5.Entrenador.Entrenador;
 import com.practica5.Entrenador.Formacion;
-import com.practica5.Jugadores.EstadoTraspaso;
 import com.practica5.Jugadores.Jugador;
 import com.practica5.Jugadores.Poticion;
 
