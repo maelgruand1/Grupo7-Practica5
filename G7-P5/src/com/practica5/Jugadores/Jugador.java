@@ -1,6 +1,6 @@
 package com.practica5.Jugadores;
 
-import com.practica5.Jugadores;
+import com.practica5.Jugadores.Jugador;
 import java.util.Date;
 import com.practica5.Equipo;
 
@@ -14,7 +14,8 @@ public class Jugador {
    private Equipo equipo;
 
    // Constructeur
-   public Jugador(String nombre, Date fechaNacimiento, String paisOrigen, Poticion posicion, int dorsal, Equipo equipo) {
+   public Jugador(String nombre, Date fechaNacimiento, String paisOrigen, Poticion posicion, int dorsal,
+         Equipo equipo) {
       this.nombre = nombre;
       this.fechaNacimiento = fechaNacimiento;
       this.paisOrigen = paisOrigen;
@@ -74,11 +75,6 @@ public class Jugador {
       this.traspaso = traspaso;
    }
 
-   @Override
-   public String toString() {
-      return "Jugador: " + nombre + ", Dorsal: " + dorsal + ", Estado Traspaso: " + traspaso;
-   }
-
    public void equipoSet(Equipo equipo) {
       equipo.agregarJugador(this);
    }
@@ -86,10 +82,20 @@ public class Jugador {
    public void setEstadoTraspaso(EstadoTraspaso estado) {
       this.traspaso = EstadoTraspaso.SOLICITADO;
    }
+
    public Equipo getEquipo() {
       return equipo;
    }
+
    public void setEquipo(Equipo equipo) {
       this.equipo = equipo;
    }
+
+   @Override
+   public String toString() {
+      return "Jugador: " + nombre + " " + this.fechaNacimiento + ", Dorsal: " + dorsal + ", Estado Traspaso: " + traspaso
+            + " " + "equipo "
+            + equipo.getAbreviatura();
+   }
+
 }
