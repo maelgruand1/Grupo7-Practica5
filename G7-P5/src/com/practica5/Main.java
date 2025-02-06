@@ -1,73 +1,76 @@
 package com.practica5;
 
-// Modulos
-import java.util.Date;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 
-// Clases
 import com.practica5.Entrenador.Entrenador;
 import com.practica5.Entrenador.Formacion;
+import com.practica5.Jugadores.EstadoTraspaso;
 import com.practica5.Jugadores.Jugador;
 import com.practica5.Jugadores.Poticion;
 
 public class Main {
+    public static Date getFechaNacimiento(int year, int month, int day) {
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(year, month, day);
+        return calendar.getTime();
+    }
 
-        public static Date getFecha(int day, int month, int year) {
-                Calendar cal = Calendar.getInstance();
-                cal.set(year, month, day);
-                return cal.getTime();
-        }
+    public static void main(String[] args) {
+        // Creación de las fechas de nacimiento de los jugadores
 
-        public static void main(String[] args) throws Exception {
-                Entrenador entrenador = new Entrenador("Zinedine Zidane", Formacion._433);
-                Presidente presidente = new Presidente("Florentino Perez");
-                ArrayList<Jugador> realMadrid = new ArrayList<Jugador>();
-                ArrayList<Jugador> barcelona = new ArrayList<Jugador>();
+        // Creación de los jugadores
+        Jugador jugador1 = new Jugador("Messi", getFechaNacimiento(2000, 10, 20), "Argentina", Poticion.delentero, 10);
+        Jugador jugador2 = new Jugador("Ronaldo", getFechaNacimiento(2004, 02, 21), "Portugal", Poticion.delentero, 7);
 
-                Equipo equipo = new Equipo("Real Madrid", presidente, entrenador, realMadrid, "RMA");
-                Equipo equipo2 = new Equipo("Barcelona", presidente, entrenador, barcelona, "BAR");
+        // Creación de un entrenador
+        Entrenador entrenador1 = new Entrenador("Guardiola", Formacion._433);
+        Entrenador entrenador2 = new Entrenador("Mourinho", Formacion._442);
 
-                Jugador jugador = new Jugador("Toni Kros", getFecha(18, 07, 1999), "Alemania", 8, Poticion.centro);
-                jugador.solicitarTraspaso(); // Debería cambiar el estado a SOLICITADO
-                entrenador.decidirTraspaso(jugador, true); // Debería cambiar el estado a APROBADO_POR_ENTRENADOR
-                presidente.decidirTraspaso(jugador, equipo, equipo2, true); // Debería cambiar el estado a
-                                                                            // APROBADO_POR_PRESIDENTE
+        // Creación de un presidente
+        Presidente presidente1 = new Presidente("Laporta");
+        Presidente presidente2 = new Presidente("Perez");
 
-                Jugador jugador1 = new Jugador("Cristiano Ronaldo", getFecha(5, 6, 1985), "Portugal", 7,
-                                Poticion.delentero);
-                jugador1.solicitarTraspaso();
-                entrenador.decidirTraspaso(jugador1, true);
-                presidente.decidirTraspaso(jugador1, equipo, equipo2, true);
+        // Creación de los equipos
+        ArrayList<Jugador> jugadoresEquipo1 = new ArrayList<>();
+        jugadoresEquipo1.add(jugador1);
 
-                Jugador jugador2 = new Jugador("Lionel Messi", getFecha(05, 06, 1987), "Argentina", 10,
-                                Poticion.izquierdo);
-                jugador2.solicitarTraspaso();
-                entrenador.decidirTraspaso(jugador2, false);
-                presidente.decidirTraspaso(jugador2, equipo2, equipo, true);
+        ArrayList<Jugador> jugadoresEquipo2 = new ArrayList<>();
+        jugadoresEquipo2.add(jugador2);
 
-                Jugador jugador3 = new Jugador("Neymar", getFecha(05, 06, 1992), "Brasil", 10, Poticion.derecho);
-                jugador3.solicitarTraspaso();
-                entrenador.decidirTraspaso(jugador3, true);
-                presidente.decidirTraspaso(jugador3, equipo2, equipo, false);
+        Equipo equipo1 = new Equipo("FCB", entrenador1, presidente1);
+        Equipo equipo2 = new Equipo("RMA", entrenador2, presidente2);
 
-                Jugador jugador4 = new Jugador("Kylian Mbappe", getFecha(01, 01, 1998), "Francia", 10,
-                                Poticion.delentero);
-                jugador4.solicitarTraspaso();
-                entrenador.decidirTraspaso(jugador4, false);
-                presidente.decidirTraspaso(jugador4, equipo, equipo2, true);
+        // Asociación de los jugadores con sus equipos
+        jugador1.setEquipo(equipo1);
+        jugador2.setEquipo(equipo2);
 
-                Jugador jugador5 = new Jugador("Luka Modric", getFecha(01, 01, 1988), "Croacia", 10,
-                                Poticion.defensor);
-                jugador5.solicitarTraspaso();
-                entrenador.decidirTraspaso(jugador5, true);
-                presidente.decidirTraspaso(jugador5, equipo2, equipo, false);
+        // Mostrar los equipos y sus jugadores
+        System.out.println(equipo1);
+        System.out.println(equipo2);
 
-                // Poner en un metodo en el main
+        // Simular una solicitud de traspaso
+        System.out.println("\n--- SOLICITUD DE TRASPASO ---");
+        jugador1.setEstadoTraspaso(EstadoTraspaso.SOLICITADO);
+        System.out.println(jugador1);
 
-                presidente.aceptarTraspaso(jugador);
-                presidente.rechazarTraspaso(jugador1);
+        // Decisión del entrenador
+        System.out.println("\n--- DECISIÓN DEL ENTRENADOR ---");
+        entrenador1.decidirTraspaso(jugador1, "Aceptar"); // Aceptado por el entrenador
+        System.out.println(jugador1);
 
-        }
+        // Decisión del presidente
+        System.out.println("\n--- DECISIÓN DEL PRESIDENTE ---");
+        presidente1.decidirTraspaso(jugador1, "Rechazar"); // Rechazado por el presidente
+        System.out.println(jugador1);
 
+        // Realizar el traspaso
+        System.out.println("\n--- TRASPASO REALIZADO ---");
+        equipo1.hacerTransferencia(jugador1, equipo2);
+        equipo1.hacerTransferencia(jugador2, equipo2);
+        System.out.println(equipo1);
+        System.out.println(equipo2);
+    }
+}
 }

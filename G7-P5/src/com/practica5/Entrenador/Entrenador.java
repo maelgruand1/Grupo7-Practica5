@@ -5,11 +5,12 @@ import com.practica5.Jugadores.Jugador;
 
 public class Entrenador {
     private String nombre;
-    private Formacion formacion;
+    private Formacion formacionPreferida; // Ejemplo: "4-4-2", "4-3-3"
 
-    public Entrenador(String nombre, Formacion formacion) {
+    // Constructeur
+    public Entrenador(String nombre, Formacion formacionPreferida) {
         this.nombre = nombre;
-        this.formacion = formacion;
+        this.formacionPreferida = formacionPreferida;
     }
 
     public String getNombre() {
@@ -20,32 +21,33 @@ public class Entrenador {
         this.nombre = nombre;
     }
 
-    public Formacion getFormacion() {
-        return formacion;
+    public Formacion getFormacionPreferida() {
+        return formacionPreferida;
     }
 
-    public void setFormacion(Formacion formacion) {
-        this.formacion = formacion;
+    public void setFormacionPreferida(Formacion formacionPreferida) {
+        this.formacionPreferida = formacionPreferida;
     }
 
+    public void decidirTraspaso(Jugador jugador, String decision) {
+        if (jugador.getTraspaso() == EstadoTraspaso.SOLICITADO) {
+            if ("Aceptar".equalsIgnoreCase(decision)) {
+                jugador.setTraspaso(EstadoTraspaso.APROBADO_POR_ENTRENADOR);
+                System.out.println("Le transfert de " + jugador.getNombre() + " a été accepté par l'entraîneur.");
+            } else if ("Rechazar".equalsIgnoreCase(decision)) {
+                jugador.setTraspaso(EstadoTraspaso.RECHAZADO_POR_ENTRENADOR);
+                System.out.println("Le transfert de " + jugador.getNombre() + " a été rejeté par l'entraîneur.");
+            } else {
+                System.out.println("Décision invalide. Utilisez 'Aceptar' ou 'Rechazar'.");
+            }
+        } else {
+            System.out.println("Le joueur " + jugador.getNombre() + " n'a pas demandé de transfert.");
+        }
+    }
+
+    @Override
     public String toString() {
-        return "Entrenador : " + nombre + " con formacion de equipo " + formacion;
+        return "Entrenador: " + nombre + ", Formación: " + formacionPreferida;
     }
-
-    public void decidirTraspaso(Jugador jugador, boolean aceptar) {
-      
-    if(jugador.getEstadoTraspaso()==EstadoTraspaso.SOLICITADO)
-
-    {
-        jugador.setEstadoTraspaso(aceptar ? EstadoTraspaso.APROBADO_POR_ENTRENADOR
-                : EstadoTraspaso.RECHAZADO_POR_ENTRENADOR);
-        System.out.println("El entrenador " + nombre + " ha " +
-                (aceptar ? "aprobado" : "rechazado") + " el traspaso de " + jugador.getNombre());
-    }else
-    {
-        System.out.println("El traspaso no puede ser decidido en este estado.");
-    }
-    }
-
 
 }

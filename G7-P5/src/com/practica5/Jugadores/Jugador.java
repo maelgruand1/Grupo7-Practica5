@@ -1,27 +1,30 @@
 package com.practica5.Jugadores;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
+import com.practica5.Jugadores;
 import java.util.Date;
+import com.practica5.Equipo;
 
 public class Jugador {
    private String nombre;
    private Date fechaNacimiento;
-   private String pais;
+   private String paisOrigen;
+   private Poticion posicion; // "Delantero", "Defensa", etc.
    private int dorsal;
-   private Poticion poticion;
-   private EstadoTraspaso estadoTraspaso;
+   private EstadoTraspaso traspaso;
+   private Equipo equipo;
 
-   public Jugador(String nombre, Date fechaNacimiento, String pais, int dorsal, Poticion poticion) {
+   // Constructeur
+   public Jugador(String nombre, Date fechaNacimiento, String paisOrigen, Poticion posicion, int dorsal, Equipo equipo) {
       this.nombre = nombre;
       this.fechaNacimiento = fechaNacimiento;
-      this.pais = pais;
+      this.paisOrigen = paisOrigen;
+      this.posicion = posicion;
       this.dorsal = dorsal;
-      this.poticion = poticion;
-      this.estadoTraspaso = EstadoTraspaso.SIN_SOLICITAR;
+      this.traspaso = EstadoTraspaso.SIN_SOLICITAR;
+      this.equipo = equipo;
    }
 
-   // Getters y Setters
+   // Getters et setters
    public String getNombre() {
       return nombre;
    }
@@ -38,12 +41,20 @@ public class Jugador {
       this.fechaNacimiento = fechaNacimiento;
    }
 
-   public String getPais() {
-      return pais;
+   public String getPaisOrigen() {
+      return paisOrigen;
    }
 
-   public void setPais(String pais) {
-      this.pais = pais;
+   public void setPaisOrigen(String paisOrigen) {
+      this.paisOrigen = paisOrigen;
+   }
+
+   public Poticion getPosicion() {
+      return posicion;
+   }
+
+   public void setPosicion(Poticion posicion) {
+      this.posicion = posicion;
    }
 
    public int getDorsal() {
@@ -51,43 +62,34 @@ public class Jugador {
    }
 
    public void setDorsal(int dorsal) {
-      this.dorsal = dorsal;
+      if (dorsal >= 0)
+         this.dorsal = dorsal;
    }
 
-   public Poticion getPoticion() {
-      return poticion;
+   public EstadoTraspaso getTraspaso() {
+      return traspaso;
    }
 
-   public void setPoticion(Poticion poticion) {
-      this.poticion = poticion;
+   public void setTraspaso(EstadoTraspaso traspaso) {
+      this.traspaso = traspaso;
    }
 
-   // Metodo para generar un String de los elementos
+   @Override
    public String toString() {
-      DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
-
-      return "Jugador : " + nombre + " del " + dateFormat.format(fechaNacimiento) + " de " +
-            pais +
-            " numero : " + dorsal + " y en posición " + poticion;
+      return "Jugador: " + nombre + ", Dorsal: " + dorsal + ", Estado Traspaso: " + traspaso;
    }
 
-   // para gestionar los estados de los traspasos
-
-   public EstadoTraspaso getEstadoTraspaso() {
-      return estadoTraspaso;
+   public void equipoSet(Equipo equipo) {
+      equipo.agregarJugador(this);
    }
 
    public void setEstadoTraspaso(EstadoTraspaso estado) {
-      this.estadoTraspaso = estado;
+      this.traspaso = EstadoTraspaso.SOLICITADO;
    }
-
-   public void solicitarTraspaso() {
-      if (estadoTraspaso == EstadoTraspaso.SIN_SOLICITAR) {
-         estadoTraspaso = EstadoTraspaso.SOLICITADO;
-         System.out.println(nombre + " ha solicitado un traspaso.");
-      } else {
-         System.out.println("El traspaso ya ha sido solicitado o está en otro estado: " + estadoTraspaso);
-      }
+   public Equipo getEquipo() {
+      return equipo;
    }
-
+   public void setEquipo(Equipo equipo) {
+      this.equipo = equipo;
+   }
 }
