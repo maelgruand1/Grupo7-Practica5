@@ -77,5 +77,6 @@ public class Main {
 
         System.out.println(equipo1);
         System.out.println(equipo2);
+
     }
 }

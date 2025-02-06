@@ -88,12 +88,4 @@ public class Equipo {
     }
 
 
-    public String toString() {
-        return "Equipo : " +
-                "nombre='" + nombre + '\'' +
-                ", presidente=" + presidente +
-                ", entrenador=" + entrenador +
-                ", jugador=" + jugador;
-    }
-
 }
