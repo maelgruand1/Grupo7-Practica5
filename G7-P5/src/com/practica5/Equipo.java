@@ -17,6 +17,7 @@ public class Equipo {
     private Entrenador entrenador;
     private Presidente presidente;
     private ArrayList<Jugador> jugadores;
+    private static int contadorJugadores = 0;
 
     /**
      * Constructor para crear un nuevo equipo.
@@ -31,6 +32,7 @@ public class Equipo {
         this.entrenador = entrenador;
         this.presidente = presidente;
         this.jugadores = jugadores;
+        contadorJugadores ++;
     }
 
     /**
@@ -48,6 +50,9 @@ public class Equipo {
             System.out.println("Jugador " + jugador.getNombre() + " ya está en el equipo.");
         }
     }
+    public static int getContadorJugadores() {
+        return contadorJugadores;
+     }
 
     /**
      * Método para realizar un traspaso de un jugador a otro equipo. El traspaso solo se realiza
