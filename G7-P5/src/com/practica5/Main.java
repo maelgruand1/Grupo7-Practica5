@@ -1,5 +1,5 @@
 /**
- * 
+ * l
  */
 package com.practica5;
 
@@ -15,7 +15,7 @@ import com.practica5.Jugadores.Poticion;
 /**
  * Clase principal para simular un escenario de transferencia de jugadores en un juego de fútbol.
  * Esta clase crea equipos, jugadores, entrenadores y presidentes, y gestiona el proceso
- * de transferencia de jugadores entre dos equipos.
+ * de transferencia de jzzzzzzzzzugadores entre dos equipos.
  * 
  * @autor [Maël Gruand]
  * @author [Piero Infante]

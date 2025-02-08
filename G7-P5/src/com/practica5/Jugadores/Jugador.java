@@ -19,6 +19,7 @@ public class Jugador {
    private int dorsal;
    private EstadoTraspaso traspaso;
    private Equipo equipo;
+   private static int contadorJugadores = 0;
 
    /**
     * Constructor para crear un nuevo jugador con los atributos proporcionados.
@@ -39,6 +40,7 @@ public class Jugador {
       this.dorsal = dorsal;
       this.traspaso = EstadoTraspaso.SIN_SOLICITAR;
       this.equipo = equipo;
+      contadorJugadores++; // Incrementar el contador de jugadores instanciados
    }
 
    // Getters y setters
@@ -190,6 +192,9 @@ public class Jugador {
          this.traspaso = EstadoTraspaso.SOLICITADO;
          System.out.println("El jugador " + this.nombre + " ha solicitado un traspaso.");
       }
+   }
+   public static int getContadorJugadores() {
+      return contadorJugadores;
    }
 
    /**
