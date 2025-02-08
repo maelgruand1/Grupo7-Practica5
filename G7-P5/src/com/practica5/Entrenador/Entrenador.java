@@ -6,12 +6,15 @@ import com.practica5.Jugadores.Jugador;
 public class Entrenador {
     private String nombre;
     private Formacion formacionPreferida; // Ejemplo: "4-4-2", "4-3-3"
+    private static int contadorEntrenadores = 0;
 
     // Constructeur
     public Entrenador(String nombre, Formacion formacionPreferida) {
         this.nombre = nombre;
         this.formacionPreferida = formacionPreferida;
+        contadorEntrenadores++; // Incrementa el contador al crear una instancia
     }
+
 
     public String getNombre() {
         return nombre;
@@ -27,6 +30,10 @@ public class Entrenador {
 
     public void setFormacionPreferida(Formacion formacionPreferida) {
         this.formacionPreferida = formacionPreferida;
+    }
+
+    public static int getContadorEntrenadores() {
+        return contadorEntrenadores;
     }
 
     public void decidirTraspaso(Jugador jugador, String decision) {
