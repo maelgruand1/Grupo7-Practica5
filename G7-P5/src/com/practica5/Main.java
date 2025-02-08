@@ -102,5 +102,15 @@ public class Main {
 
         System.out.println(equipo1);
         System.out.println(equipo2);
+
+
+        // MOSTRAR TOTAL DE PRESIDENTES CREADOS
+        System.out.println("\n--- TOTAL DE PRESIDENTES CREADOS ---");
+        System.out.println("Total de presidentes creados: " + Presidente.getContadorPresidentes());
+        
+        // MOSTRAR TOTAL DE ENTRENADORES CREADOS
+        System.out.println("\n--- TOTAL DE ENTRENADORES CREADOS ---");
+        System.out.println("Total de entrenadores creados: " + Entrenador.getContadorEntrenadores());
     }
 }
+
