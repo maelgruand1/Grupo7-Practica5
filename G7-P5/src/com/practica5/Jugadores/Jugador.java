@@ -159,9 +159,12 @@ public class Jugador {
     *
     * @param equipo El nuevo equipo del jugador.
     */
-   public void equipoSet(Equipo equipo) {
-      equipo.agregarJugador(this);
-   }
+    public void equipoSet(Equipo equipo) {
+      this.equipo = equipo; // Asignar el equipo al jugador
+      equipo.agregarJugador(this); // Agregar el jugador al equipo
+    
+    }
+
 
    /**
     * Obtiene el equipo al que pertenece el jugador.

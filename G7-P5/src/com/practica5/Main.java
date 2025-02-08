@@ -114,8 +114,9 @@ public class Main {
 
         // Mostrar total de  jugadores creados
         System.out.println("\n--- TOTAL DE JUGADORES CREADOS ---");
-        System.out.println("Total de jugadores creados: " + Jugador.getContadorJugadores());
+        System.out.println("Total de jugadores creados: " + Jugador.getContadorJugadores())
 
+        //MOSTRAR TOTAL DE EQUIPOS CREADOS
         System.out.println("\n--- TOTAL DE EQUIPOS CREADOS ---");
         System.out.println("Total de equipos creados: " + Equipo.getContadorEquipos());
     }
