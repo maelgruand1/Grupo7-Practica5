@@ -106,11 +106,18 @@ public class Main {
 
         // MOSTRAR TOTAL DE PRESIDENTES CREADOS
         System.out.println("\n--- TOTAL DE PRESIDENTES CREADOS ---");
-        System.out.println("Total de presidentes creados: " + Presidente.getContadorPresidentes());
+        System.out.println("Total de presidentes creados: " + Presidente.getcontadorPresidente());
         
         // MOSTRAR TOTAL DE ENTRENADORES CREADOS
         System.out.println("\n--- TOTAL DE ENTRENADORES CREADOS ---");
         System.out.println("Total de entrenadores creados: " + Entrenador.getContadorEntrenadores());
+
+        // Mostrar total de  jugadores creados
+        System.out.println("\n--- TOTAL DE JUGADORES CREADOS ---");
+        System.out.println("Total de jugadores creados: " + Jugador.getContadorJugadores());
+
+        System.out.println("\n--- TOTAL DE EQUIPOS CREADOS ---");
+        System.out.println("Total de equipos creados: " + Equipo.getContadorEquipos());
     }
 }
 

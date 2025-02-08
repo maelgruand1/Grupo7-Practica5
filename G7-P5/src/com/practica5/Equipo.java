@@ -17,7 +17,7 @@ public class Equipo {
     private Entrenador entrenador;
     private Presidente presidente;
     private ArrayList<Jugador> jugadores;
-    private static int contadorJugadores = 0;
+    private static int contadorEquipos = 0; //Variable de intensia
 
     /**
      * Constructor para crear un nuevo equipo.
@@ -32,7 +32,7 @@ public class Equipo {
         this.entrenador = entrenador;
         this.presidente = presidente;
         this.jugadores = jugadores;
-        contadorJugadores ++;
+        contadorEquipos ++;
     }
 
     /**
@@ -50,8 +50,8 @@ public class Equipo {
             System.out.println("Jugador " + jugador.getNombre() + " ya está en el equipo.");
         }
     }
-    public static int getContadorJugadores() {
-        return contadorJugadores;
+    public static int getContadorEquipos() {
+        return contadorEquipos;
      }
 
     /**
