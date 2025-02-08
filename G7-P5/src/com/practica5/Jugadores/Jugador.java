@@ -164,16 +164,8 @@ public class Jugador {
       equipo.agregarJugador(this); // Agregar el jugador al equipo
     
     }
-
-
-   /**
-    * Obtiene el equipo al que pertenece el jugador.
-    *
-    * @return El equipo del jugador.
-    */
-   public Equipo getEquipo() {
-      return equipo;
-   }
+    
+   
 
    /**
     * Establece el nuevo equipo al que pertenece el jugador.
@@ -182,6 +174,10 @@ public class Jugador {
     */
    public void setEquipo(Equipo nuevoClub) {
       this.equipo = nuevoClub;
+   }
+
+   public Equipo getEquipo(){
+      return equipo;
    }
 
    /**
