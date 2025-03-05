@@ -12,6 +12,7 @@ import com.practica5.Jugadores.Jugador;
  */
 public class Presidente {
     private String nombre;
+    private static int contadorPresidentes = 0; //Atributo estatico para contar instancias
 
     /**
      * Constructor para crear un nuevo presidente con el nombre proporcionado.
@@ -20,6 +21,7 @@ public class Presidente {
      */
     public Presidente(String nombre) {
         this.nombre = nombre;
+        contadorPresidentes++; //Incrementa el contador al crear una instancia.
     }
 
     /**
@@ -38,6 +40,10 @@ public class Presidente {
      */
     public void setNombre(String nombre) {
         this.nombre = nombre;
+    }
+
+    public static int getcontadorPresidente() {
+        return contadorPresidentes;
     }
 
     /**

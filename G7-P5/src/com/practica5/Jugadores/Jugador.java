@@ -19,6 +19,7 @@ public class Jugador {
    private int dorsal;
    private EstadoTraspaso traspaso;
    private Equipo equipo;
+   private static int contadorJugadores = 0;
 
    /**
     * Constructor para crear un nuevo jugador con los atributos proporcionados.
@@ -39,6 +40,7 @@ public class Jugador {
       this.dorsal = dorsal;
       this.traspaso = EstadoTraspaso.SIN_SOLICITAR;
       this.equipo = equipo;
+      contadorJugadores++; // Incrementar el contador de jugadores instanciados
    }
 
    // Getters y setters
@@ -157,18 +159,13 @@ public class Jugador {
     *
     * @param equipo El nuevo equipo del jugador.
     */
-   public void equipoSet(Equipo equipo) {
-      equipo.agregarJugador(this);
-   }
-
-   /**
-    * Obtiene el equipo al que pertenece el jugador.
-    *
-    * @return El equipo del jugador.
-    */
-   public Equipo getEquipo() {
-      return equipo;
-   }
+    public void equipoSet(Equipo equipo) {
+      this.equipo = equipo; // Asignar el equipo al jugador
+      equipo.agregarJugador(this); // Agregar el jugador al equipo
+    
+    }
+    
+   
 
    /**
     * Establece el nuevo equipo al que pertenece el jugador.
@@ -177,6 +174,10 @@ public class Jugador {
     */
    public void setEquipo(Equipo nuevoClub) {
       this.equipo = nuevoClub;
+   }
+
+   public Equipo getEquipo(){
+      return equipo;
    }
 
    /**
@@ -190,6 +191,9 @@ public class Jugador {
          this.traspaso = EstadoTraspaso.SOLICITADO;
          System.out.println("El jugador " + this.nombre + " ha solicitado un traspaso.");
       }
+   }
+   public static int getContadorJugadores() {
+      return contadorJugadores;
    }
 
    /**

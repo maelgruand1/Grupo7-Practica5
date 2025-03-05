@@ -1,5 +1,5 @@
 /**
- * 
+ * l
  */
 package com.practica5;
 
@@ -15,7 +15,7 @@ import com.practica5.Jugadores.Poticion;
 /**
  * Clase principal para simular un escenario de transferencia de jugadores en un juego de fútbol.
  * Esta clase crea equipos, jugadores, entrenadores y presidentes, y gestiona el proceso
- * de transferencia de jugadores entre dos equipos.
+ * de transferencia de jzzzzzzzzzugadores entre dos equipos.
  * 
  * @autor [Maël Gruand]
  * @author [Piero Infante]
@@ -95,12 +95,32 @@ public class Main {
         // Realización del traspaso
         System.out.println("\n--- TRASPASO REALIZADO ---");
         equipo1.hacerTransferencia(jugador1, equipo2);
+        jugador1.setEquipo(equipo1);
         equipo2.hacerTransferencia(jugador2, equipo1);
+        jugador2.setEquipo(equipo2);
         
         System.out.println(jugador1);
         System.out.println(jugador2);
 
         System.out.println(equipo1);
         System.out.println(equipo2);
+
+
+        // MOSTRAR TOTAL DE PRESIDENTES CREADOS
+        System.out.println("\n--- TOTAL DE PRESIDENTES CREADOS ---");
+        System.out.println("Total de presidentes creados: " + Presidente.getcontadorPresidente());
+        
+        // MOSTRAR TOTAL DE ENTRENADORES CREADOS
+        System.out.println("\n--- TOTAL DE ENTRENADORES CREADOS ---");
+        System.out.println("Total de entrenadores creados: " + Entrenador.getContadorEntrenadores());
+
+        // Mostrar total de  jugadores creados
+        System.out.println("\n--- TOTAL DE JUGADORES CREADOS ---");
+        System.out.println("Total de jugadores creados: " + Jugador.getContadorJugadores());
+
+        //MOSTRAR TOTAL DE EQUIPOS CREADOS
+        System.out.println("\n--- TOTAL DE EQUIPOS CREADOS ---");
+        System.out.println("Total de equipos creados: " + Equipo.getContadorEquipos());
     }
 }
+

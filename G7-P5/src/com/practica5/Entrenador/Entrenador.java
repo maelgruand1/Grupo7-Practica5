@@ -1,24 +1,19 @@
-package com.practica5.Entrenador;
+package Entrenador;
 
-import com.practica5.Jugadores.EstadoTraspaso;
-import com.practica5.Jugadores.Jugador;
+import Jugadores.EstadoTraspaso;
+import Jugadores.Jugador;
+import java.util.Date;
+import Trabajador.Trabajador;
 
-public class Entrenador {
-    private String nombre;
-    private Formacion formacionPreferida; // Ejemplo: "4-4-2", "4-3-3"
+public class Entrenador extends Trabajador {
+    private Formacion formacionPreferida; 
+    private static int contadorEntrenadores = 0;
 
-    // Constructeur
-    public Entrenador(String nombre, Formacion formacionPreferida) {
-        this.nombre = nombre;
+    // Constructor
+    public Entrenador(String nombre, Date fechaNacimiento, String paisOrigen, Formacion formacionPreferida) {
+        super(nombre, fechaNacimiento, paisOrigen);
         this.formacionPreferida = formacionPreferida;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+        contadorEntrenadores++; 
     }
 
     public Formacion getFormacionPreferida() {
@@ -29,26 +24,31 @@ public class Entrenador {
         this.formacionPreferida = formacionPreferida;
     }
 
+    public static int getContadorEntrenadores() {
+        return contadorEntrenadores;
+    }
+
+    // Método para decidir sobre un traspaso
     public void decidirTraspaso(Jugador jugador, String decision) {
         if (jugador.getTraspaso() == EstadoTraspaso.SOLICITADO) {
             if ("Aceptar".equalsIgnoreCase(decision)) {
                 jugador.setTraspaso(EstadoTraspaso.APROBADO_POR_ENTRENADOR);
-                System.out.println("Le transfert de " + jugador.getNombre() + " a été accepté par l'entraîneur.");
+                System.out.println("El traspaso de " + jugador.getNombre() + " ha sido aceptado por el entrenador.");
             } else if ("Rechazar".equalsIgnoreCase(decision)) {
                 jugador.setTraspaso(EstadoTraspaso.RECHAZADO_POR_ENTRENADOR);
-                System.out.println("Le transfert de " + jugador.getNombre() + " a été rejeté par l'entraîneur.");
+                System.out.println("El traspaso de " + jugador.getNombre() + " ha sido rechazado por el entrenador.");
             } else {
-                System.out.println("Décision invalide. Utilisez 'Aceptar' ou 'Rechazar'.");
+                System.out.println("Decisión inválida. Usa 'Aceptar' o 'Rechazar'.");
             }
         } else {
-            System.out.println("Le joueur " + jugador.getNombre() + " n'a pas demandé de transfert.");
+            System.out.println("El jugador " + jugador.getNombre() + " no ha solicitado un traspaso.");
         }
     }
-    
 
+    // Implementación del método abstracto
     @Override
-    public String toString() {
-        return "Entrenador: " + nombre + ", Formación: " + formacionPreferida;
+    public void mostrarInfo() {
+        System.out.println("Entrenador: " + getNombre() + ", Nacido el: " + getFechaNacimiento() + 
+                           ", País: " + getPaisOrigen() + ", Formación preferida: " + formacionPreferida);
     }
-
 }
