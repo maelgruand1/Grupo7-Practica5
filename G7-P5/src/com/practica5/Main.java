@@ -50,8 +50,8 @@ public class Main {
         ArrayList<Jugador> jugadoresEquipo2 = new ArrayList<Jugador>();
 
         // Creación de los presidentes
-        Presidente presidente1 = new Presidente("Laporta");
-        Presidente presidente2 = new Presidente("Perez");
+        Presidente presidente1 = new Presidente("Laporta", getFechaNacimiento(2002, 2, 29), "Italia");
+        Presidente presidente2 = new Presidente("Perez", getFechaNacimiento(1992, 9, 23), "Estados Unidos");
         Equipo equipo1 = new Equipo("FCB", entrenador1, presidente1, jugadoresEquipo1);
         Equipo equipo2 = new Equipo("RMA", entrenador2, presidente2, jugadoresEquipo2);
 
@@ -108,7 +108,7 @@ public class Main {
 
         // MOSTRAR TOTAL DE PRESIDENTES CREADOS
         System.out.println("\n--- TOTAL DE PRESIDENTES CREADOS ---");
-        System.out.println("Total de presidentes creados: " + Presidente.getcontadorPresidente());
+        System.out.println("Total de presidentes creados: " + Presidente.getContadorPresidentes());
         
         // MOSTRAR TOTAL DE ENTRENADORES CREADOS
         System.out.println("\n--- TOTAL DE ENTRENADORES CREADOS ---");
