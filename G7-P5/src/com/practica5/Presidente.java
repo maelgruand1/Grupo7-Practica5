@@ -9,7 +9,7 @@ import java.util.Date;
  * de decidir sobre los traspasos de los jugadores, siempre y cuando el entrenador haya aprobado
  * previamente el traspaso.
  */
-public class Presidente extends Trabajador {  // Hereda de Trabajador
+public class Presidente extends Trabajador implements GestorTraspasos{  // Hereda de Trabajador
     private static int contadorPresidentes = 0; // Atributo estático para contar instancias
 
     /**
@@ -33,31 +33,38 @@ public class Presidente extends Trabajador {  // Hereda de Trabajador
         return contadorPresidentes;
     }
 
-    /**
-     * Método para que el presidente decida sobre un traspaso de un jugador.
-     * El traspaso solo se puede aprobar o rechazar si el entrenador ha aprobado previamente
-     * el traspaso del jugador. Si la decisión es "Aceptar", el presidente aprueba el traspaso;
-     * si es "Rechazar", lo rechaza.
+     /**
+     * Método de la interfaz GestorTraspasos para aprobar el traspaso de un jugador.
      *
-     * @param jugador El jugador cuyo traspaso se está decidiendo.
-     * @param decision La decisión del presidente sobre el traspaso ("Aceptar" o "Rechazar").
+     * @param jugador El jugador cuyo traspaso se va a aprobar.
      */
-    public void decidirTraspaso(Jugador jugador, String decision) {
+    @Override
+    public void aprobarTraspaso(Jugador jugador) {
         // Verifica si el entrenador ya ha aprobado el traspaso
         if (jugador.getTraspaso() == EstadoTraspaso.APROBADO_POR_ENTRENADOR) {
-            if ("Aceptar".equalsIgnoreCase(decision)) {
-                jugador.setTraspaso(EstadoTraspaso.APROBADO_POR_PRESIDENTE);
-                System.out.println("El traspaso de " + jugador.getNombre() + " ha sido aprobado por el presidente.");
-            } else if ("Rechazar".equalsIgnoreCase(decision)) {
-                jugador.setTraspaso(EstadoTraspaso.RECHAZADO_POR_PRESIDENTE);
-                System.out.println("El traspaso de " + jugador.getNombre() + " ha sido rechazado por el presidente.");
-            } else {
-                System.out.println("Decisión inválida. Use 'Aceptar' o 'Rechazar'.");
-            }
+            jugador.setTraspaso(EstadoTraspaso.APROBADO_POR_PRESIDENTE);
+            System.out.println("El traspaso de " + jugador.getNombre() + " ha sido aprobado por el presidente.");
         } else {
             System.out.println("El jugador " + jugador.getNombre() + " no ha sido aprobado por el entrenador para el traspaso.");
         }
     }
+
+    /**
+     * Método de la interfaz GestorTraspasos para rechazar el traspaso de un jugador.
+     *
+     * @param jugador El jugador cuyo traspaso se va a rechazar.
+     */
+    @Override
+    public void rechazarTraspaso(Jugador jugador) {
+        // Verifica si el entrenador ya ha aprobado el traspaso
+        if (jugador.getTraspaso() == EstadoTraspaso.APROBADO_POR_ENTRENADOR) {
+            jugador.setTraspaso(EstadoTraspaso.RECHAZADO_POR_PRESIDENTE);
+            System.out.println("El traspaso de " + jugador.getNombre() + " ha sido rechazado por el presidente.");
+        } else {
+            System.out.println("El jugador " + jugador.getNombre() + " no ha sido aprobado por el entrenador para el traspaso.");
+        }
+    }
+
 
     /**
      * Método para representar al presidente como una cadena de texto.

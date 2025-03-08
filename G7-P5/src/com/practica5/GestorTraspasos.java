@@ -1,8 +1,6 @@
 package com.practica5;
 
-// Crear interface
 public interface GestorTraspasos {
-    void approbarTraspaso();
-    void rechazarTraspaso();
-    
+    void aprobarTraspaso(Jugador jugador);  // Método para aprobar traspaso de un jugador
+    void rechazarTraspaso(Jugador jugador); // Método para rechazar traspaso de un jugador
 }
