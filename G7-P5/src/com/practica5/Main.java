@@ -15,7 +15,7 @@ import com.practica5.Jugadores.Poticion;
 /**
  * Clase principal para simular un escenario de transferencia de jugadores en un juego de fútbol.
  * Esta clase crea equipos, jugadores, entrenadores y presidentes, y gestiona el proceso
- * de transferencia de jzzzzzzzzzugadores entre dos equipos.
+ * de transferencia de jugadores entre dos equipos.
  * 
  * @autor [Maël Gruand]
  * @author [Piero Infante]
@@ -44,8 +44,8 @@ public class Main {
      * @param args Los argumentos de la línea de comandos (no utilizados en este caso).
      */
     public static void main(String[] args) {
-        Entrenador entrenador1 = new Entrenador("Guardiola", Formacion._433);
-        Entrenador entrenador2 = new Entrenador("Mourinho", Formacion._442);
+        Entrenador entrenador1 = new Entrenador("Guardiola", getFechaNacimiento(1990, 8, 22), "Venezuela", Formacion._433);
+        Entrenador entrenador2 = new Entrenador("Mourinho", getFechaNacimiento(1999, 3, 3), "Español", Formacion._442);
         ArrayList<Jugador> jugadoresEquipo1 = new ArrayList<Jugador>();
         ArrayList<Jugador> jugadoresEquipo2 = new ArrayList<Jugador>();
 

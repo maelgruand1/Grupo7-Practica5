@@ -1,8 +1,9 @@
+package com.practica5;
 import java.util.Date;
 
 // Clase abstracta Trabajador
 public abstract class Trabajador {
-    private String nombre;
+    public String nombre;
     private Date fechaNacimiento;
     private String paisOrigen;
 

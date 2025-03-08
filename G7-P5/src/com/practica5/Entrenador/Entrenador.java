@@ -1,9 +1,9 @@
-package Entrenador;
+package com.practica5.Entrenador;
 
-import Jugadores.EstadoTraspaso;
-import Jugadores.Jugador;
+import com.practica5.Jugadores.EstadoTraspaso;
+import com.practica5.Jugadores.Jugador;
 import java.util.Date;
-import Trabajador.Trabajador;
+import com.practica5.Trabajador;
 
 public class Entrenador extends Trabajador {
     private Formacion formacionPreferida; 
