@@ -2,47 +2,34 @@ package com.practica5;
 
 import com.practica5.Jugadores.EstadoTraspaso;
 import com.practica5.Jugadores.Jugador;
+import java.util.Date;
 
 /**
  * Clase que representa a un presidente de un equipo de fútbol. El presidente tiene la capacidad
  * de decidir sobre los traspasos de los jugadores, siempre y cuando el entrenador haya aprobado
  * previamente el traspaso.
- * 
- * @autor [Nombre del autor]
  */
-public class Presidente {
-    private String nombre;
-    private static int contadorPresidentes = 0; //Atributo estatico para contar instancias
+public class Presidente extends Trabajador {  // Hereda de Trabajador
+    private static int contadorPresidentes = 0; // Atributo estático para contar instancias
 
     /**
-     * Constructor para crear un nuevo presidente con el nombre proporcionado.
+     * Constructor para crear un nuevo presidente con los atributos proporcionados.
      *
      * @param nombre El nombre del presidente.
+     * @param fechaNacimiento La fecha de nacimiento del presidente.
+     * @param paisOrigen El país de origen del presidente.
      */
-    public Presidente(String nombre) {
-        this.nombre = nombre;
-        contadorPresidentes++; //Incrementa el contador al crear una instancia.
+    public Presidente(String nombre, Date fechaNacimiento, String paisOrigen) {
+        super(nombre, fechaNacimiento, paisOrigen);  // Llamada al constructor de la clase base
+        contadorPresidentes++; // Incrementa el contador al crear una instancia
     }
 
     /**
-     * Obtiene el nombre del presidente.
+     * Obtiene el contador de presidentes.
      *
-     * @return El nombre del presidente.
+     * @return El número de presidentes creados.
      */
-    public String getNombre() {
-        return nombre;
-    }
-
-    /**
-     * Establece el nombre del presidente.
-     *
-     * @param nombre El nuevo nombre del presidente.
-     */
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public static int getcontadorPresidente() {
+    public static int getContadorPresidentes() {
         return contadorPresidentes;
     }
 
@@ -79,6 +66,12 @@ public class Presidente {
      */
     @Override
     public String toString() {
-        return "Presidente: " + nombre;
+        return "Presidente: " + getNombre();  // Usamos getNombre() heredado de Trabajador
+    }
+
+    @Override
+    public void mostrarInfo() {
+        System.out.println(this.toString());
     }
 }
+
