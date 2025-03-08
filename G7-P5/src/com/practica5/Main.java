@@ -121,6 +121,10 @@ public class Main {
         //MOSTRAR TOTAL DE EQUIPOS CREADOS
         System.out.println("\n--- TOTAL DE EQUIPOS CREADOS ---");
         System.out.println("Total de equipos creados: " + Equipo.getContadorEquipos());
+
+        //MOSTRAR TOTAL DE TRABAJADORES CREADOS
+        System.out.println("\n--- TOTAL DE TRABAJADORES CREADOS ---");
+        System.out.println("Total de trabajadores creados: " + Trabajador.getContadorTrabajadores());
     }
 }
 
