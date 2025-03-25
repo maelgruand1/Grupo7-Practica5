@@ -13,8 +13,10 @@ import com.practica5.Jugadores.Jugador;
 import com.practica5.Jugadores.Poticion;
 
 /**
- * Clase principal para simular un escenario de transferencia de jugadores en un juego de fútbol.
- * Esta clase crea equipos, jugadores, entrenadores y presidentes, y gestiona el proceso
+ * Clase principal para simular un escenario de transferencia de jugadores en un
+ * juego de fútbol.
+ * Esta clase crea equipos, jugadores, entrenadores y presidentes, y gestiona el
+ * proceso
  * de transferencia de jugadores entre dos equipos.
  * 
  * @autor [Maël Gruand]
@@ -24,11 +26,12 @@ public class Main {
 
     /**
      * Crea una fecha de nacimiento a partir de un año, mes y día dados.
-     * El mes comienza en 0, por lo que es necesario restar 1 al mes pasado como argumento.
+     * El mes comienza en 0, por lo que es necesario restar 1 al mes pasado como
+     * argumento.
      *
-     * @param year El año de nacimiento.
+     * @param year  El año de nacimiento.
      * @param month El mes de nacimiento (1-12).
-     * @param day El día de nacimiento.
+     * @param day   El día de nacimiento.
      * @return La fecha de nacimiento creada.
      */
     public static Date getFechaNacimiento(int year, int month, int day) {
@@ -38,13 +41,16 @@ public class Main {
     }
 
     /**
-     * Método principal que simula el proceso de creación de equipos, jugadores, entrenadores y presidentes,
+     * Método principal que simula el proceso de creación de equipos, jugadores,
+     * entrenadores y presidentes,
      * así como la gestión de las transferencias de jugadores entre dos equipos.
      *
-     * @param args Los argumentos de la línea de comandos (no utilizados en este caso).
+     * @param args Los argumentos de la línea de comandos (no utilizados en este
+     *             caso).
      */
     public static void main(String[] args) {
-        Entrenador entrenador1 = new Entrenador("Guardiola", getFechaNacimiento(1990, 8, 22), "Venezuela", Formacion._433);
+        Entrenador entrenador1 = new Entrenador("Guardiola", getFechaNacimiento(1990, 8, 22), "Venezuela",
+                Formacion._433);
         Entrenador entrenador2 = new Entrenador("Mourinho", getFechaNacimiento(1999, 3, 3), "Español", Formacion._442);
         ArrayList<Jugador> jugadoresEquipo1 = new ArrayList<Jugador>();
         ArrayList<Jugador> jugadoresEquipo2 = new ArrayList<Jugador>();
@@ -73,21 +79,21 @@ public class Main {
         System.out.println("\n--- SOLICITUD DE TRASPASO ---");
         jugador1.solicitarTraspaso();
         jugador2.solicitarTraspaso();
-        
+
         System.out.println(jugador1);
         System.out.println(jugador2);
 
         // Decisión del entrenador
         System.out.println("\n--- DECISIÓN DEL ENTRENADOR ---");
-        entrenador1.decidirTraspaso(jugador1, "Aceptar"); 
+        entrenador1.aprobarTraspaso(jugador1);
         System.out.println(jugador1);
-        entrenador2.decidirTraspaso(jugador2, "Aceptar"); 
+        entrenador2.aprobarTraspaso(jugador2);
         System.out.println(jugador2);
 
         // Decisión del presidente
         System.out.println("\n--- DECISIÓN DEL PRESIDENTE ---");
-        presidente1.decidirTraspaso(jugador1, "Aceptar"); 
-        presidente2.decidirTraspaso(jugador2, "Aceptar"); 
+        presidente1.aprobarTraspaso(jugador1);
+        presidente2.aprobarTraspaso(jugador2);
 
         System.out.println(jugador1);
         System.out.println(jugador2);
@@ -98,33 +104,31 @@ public class Main {
         jugador1.setEquipo(equipo1);
         equipo2.hacerTransferencia(jugador2, equipo1);
         jugador2.setEquipo(equipo2);
-        
+
         System.out.println(jugador1);
         System.out.println(jugador2);
 
         System.out.println(equipo1);
         System.out.println(equipo2);
 
-
         // MOSTRAR TOTAL DE PRESIDENTES CREADOS
         System.out.println("\n--- TOTAL DE PRESIDENTES CREADOS ---");
         System.out.println("Total de presidentes creados: " + Presidente.getContadorPresidentes());
-        
+
         // MOSTRAR TOTAL DE ENTRENADORES CREADOS
         System.out.println("\n--- TOTAL DE ENTRENADORES CREADOS ---");
         System.out.println("Total de entrenadores creados: " + Entrenador.getContadorEntrenadores());
 
-        // Mostrar total de  jugadores creados
+        // Mostrar total de jugadores creados
         System.out.println("\n--- TOTAL DE JUGADORES CREADOS ---");
         System.out.println("Total de jugadores creados: " + Jugador.getContadorJugadores());
 
-        //MOSTRAR TOTAL DE EQUIPOS CREADOS
+        // MOSTRAR TOTAL DE EQUIPOS CREADOS
         System.out.println("\n--- TOTAL DE EQUIPOS CREADOS ---");
         System.out.println("Total de equipos creados: " + Equipo.getContadorEquipos());
 
-        //MOSTRAR TOTAL DE TRABAJADORES CREADOS
+        // MOSTRAR TOTAL DE TRABAJADORES CREADOS
         System.out.println("\n--- TOTAL DE TRABAJADORES CREADOS ---");
         System.out.println("Total de trabajadores creados: " + Trabajador.getContadorTrabajadores());
     }
 }
-
